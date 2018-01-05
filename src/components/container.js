@@ -1,4 +1,5 @@
 import styled from "styled-components/native"
+import { Card } from "react-native-elements"
 
 export const Body = styled.View`
   flex: 1;
@@ -41,10 +42,16 @@ export const FormContainer = styled(Container)`
   align-items: stretch;
 `
 
-export const EventContainer = styled(Container)`
-  flex-flow: column nowrap;
+export const EventContainer = styled(Card)`
   justify-content: center;
-  margin: 5px 0;
+  align-items: center;
+  background-color: white;
+`
+
+export const DayContainer = styled(Container)`
+  flex: 1;
+  max-width: 20%;
+  min-height: 100px;
 `
 
 export const IconContainer = styled.View`

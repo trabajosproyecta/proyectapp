@@ -4,12 +4,11 @@ import { connect } from "react-redux"
 import { List, ListItem, Avatar } from "react-native-elements"
 import PropTypes from "prop-types"
 import { CenterText } from "./text"
-import { Button } from "./form"
 
 import { logoutUser } from "../redux/modules/authentication"
-import { NoFlexRow as Row, Container, CenterRow } from "./container"
+import { NoFlexRow as Row, Container } from "./container"
 import { Actions } from "react-native-router-flux"
-import { PROYECTA_COLOR } from "./colors";
+import { PROYECTA_COLOR } from "./colors"
 
 const DrawerView = styled.View`
   margin: 30px 15px;
@@ -65,9 +64,11 @@ class DrawerContent extends React.Component {
             overlayContainerStyle={{ backgroundColor: PROYECTA_COLOR }}
           />
           <Container>
-            <CenterText>{this.props.name}</CenterText>
-            <CenterText>{this.props.email}</CenterText>
-            <CenterText>Comunidad: {this.props.community}</CenterText>
+            <CenterText fontType="bold">{this.props.name}</CenterText>
+            <CenterText fontType="light">{this.props.email}</CenterText>
+            <CenterText fontType="light">
+              Comunidad: {this.props.community}
+            </CenterText>
           </Container>
         </Row>
         <List containerStyle={{ marginBottom: 20 }}>

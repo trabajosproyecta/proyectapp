@@ -1,8 +1,8 @@
 import React from "react"
 import { Agenda as RNAgenda } from "react-native-calendars"
 
-import { CenterText, Text } from "./text"
-import { EventContainer, Row } from "./container"
+import { CenterText, Title } from "./text"
+import { EventContainer, DayContainer, Container } from "./container"
 
 import { LocaleConfig } from "react-native-calendars"
 
@@ -51,18 +51,17 @@ LocaleConfig.defaultLocale = "es"
 export const Agenda = props => {
   return (
     <RNAgenda
-      renderItem={item => (
-        <EventContainer>
+      renderItem={(item, firsItemInDay) => (
+        <EventContainer first={firsItemInDay}>
           <CenterText>{item.community}</CenterText>
-          <Row>
-            <Text>{item.title}</Text>
-            <Text>{item.time}</Text>
-          </Row>
+          <CenterText fontType="bold">{item.title}</CenterText>
+          <CenterText fontType="light-italic">{item.description}</CenterText>
+          <CenterText fontType="light">{item.time} hrs</CenterText>
         </EventContainer>
       )}
       renderEmptyDate={() => undefined}
       rowHasChanged={(r1, r2) => {
-        return r1.name !== r2.name
+        return r1.title !== r2.title
       }}
       firstDay={1}
       pastScrollRange={0}

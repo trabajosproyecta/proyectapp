@@ -16,7 +16,7 @@ export const SubTitle = styled.Text`
 export const Text = styled.Text`
   color: ${props => (props.color ? props.color : "black")};
   text-align: ${props => (props.textAlign ? props.textAlign : "left")};
-  font-family: whitney;
+  font-family: whitney${props => (props.fontType ? `-${props.fontType}` : "")};
 `
 
 export const ButtonText = styled(Text)`
